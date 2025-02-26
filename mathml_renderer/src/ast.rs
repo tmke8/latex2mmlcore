@@ -459,7 +459,9 @@ impl<'arena> MathMLEmitter<'arena> {
                     Align::Left => {
                         "<mtd style=\"text-align: -webkit-left; text-align: -moz-left; padding-right: 0; padding-left: 1em\">"
                     }
-                    Align::Alternating => "<mtd style=\"text-align: -webkit-left; text-align: -moz-left; padding-left: 0\">",
+                    Align::Alternating => {
+                        "<mtd style=\"text-align: -webkit-left; text-align: -moz-left; padding-left: 0\">"
+                    }
                 };
 
                 let mut col: usize = 1;
@@ -857,7 +859,7 @@ mod tests {
             "<mo maxsize=\"1.2em\" minsize=\"1.2em\">(</mo>"
         );
         assert_eq!(
-            render(&Node::SizedParen (
+            render(&Node::SizedParen(
                 crate::attribute::Size::Scale3,
                 ops::SOLIDUS,
             )),
